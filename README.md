@@ -1,7 +1,6 @@
 # Partikelfilter: mehrgipflige Verteilungen mit Stichproben darstellen – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-particle-filter-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-particle-filter-demo.streamlit.app/)**
 
 Sechstes Stück der Linie **Zustandsschätzung und Filter** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“.
 Es führt zwei Stücke zusammen: [Erweiterter Kalman-Filter](https://github.com/sebastian-hanisch/ekf-demo) (kontinuierlicher, nichtlinearer Zustand, aber **ein** Gauß-Gipfel) und
