@@ -83,6 +83,21 @@ Weiter unten: drei Experimente (**🔬**), **🚧 Wo die Annahmen enden** und de
 """
 )
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/particle-filter-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Ein Fahrzeug fährt an einer Bake vorbei, die nur die Entfernung misst. Dann kann es auf zwei spiegelbildlichen Seiten sein, beide mit genau derselben Entfernung. Ein Gauß-Filter (EKF, UKF) kennt nur einen Gipfel und legt seinen Mittelwert dazwischen, wo das Fahrzeug nicht sein kann.
+
+Der **Partikelfilter** stellt die Verteilung als Wolke von Stichproben dar. Jeder Partikel ist ein möglicher Zustand mit einem Gewicht. Jede Sekunde fährt jeder Partikel weiter, wird nach der Messung gewichtet und bei Bedarf neu gezogen. Passen beide Seiten gleich gut zur Messung, bleiben beide Gruppen erhalten.
+
+Die Demo zeigt, wann sich das lohnt und was es kostet. Beim Positionsfehler ist er nicht besser als der UKF. Mit zu wenigen Partikeln geht eine Seite durch Zufall verloren. In vielen Dimensionen tragen kaum noch Partikel zum Ergebnis bei.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/particle-filter-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 with st.expander("So funktioniert der Partikelfilter", expanded=True):
     st.markdown(
         """
@@ -241,6 +256,25 @@ st.markdown(
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/particle-filter-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind Entfernungsmessungen einer oder zweier Baken (optional mit Peilung) an ein Fahrzeug, das sich ungefähr mit konstanter Geschwindigkeit bewegt. Gesucht ist die Verteilung seines Zustands, dargestellt als gewichtete Stichprobe von $N$ Partikeln, und was sie gegenüber einem Gauß-Filter leistet.
+
+| Symbol | Bedeutung |
+|---|---|
+| $x_k$ | Zustand zum Zeitpunkt $k$: Ort $(p_x, p_y)$ und Geschwindigkeit des Fahrzeugs in der Ebene |
+| $z_{1:k}$ | alle Messungen bis zum Zeitpunkt $k$ |
+| $x_k^{(i)}$, $w_k^{(i)}$ | Zustand und Gewicht des $i$-ten Partikels, $i = 1, \dots, N$ |
+| $F$, $Q$ | Übergangsmatrix der Bewegung und Kovarianz der zufälligen Beschleunigung |
+| $h$, $R$ | Messfunktion (Entfernung, optional Peilung) und Kovarianz des Messrauschens |
+| $N_{\mathrm{eff}}$ | effektive Stichprobengröße: wie viele gleich gewichtete Partikel die gewichtete Wolke wert ist |
+| $d$, $s$ | Dimension des Zustands in der Rechenprobe und Messstreuung je Komponente im Verhältnis zur Prior-Streuung |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/particle-filter-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Ziel.** Verteilung des Zustands $x_k$ gegeben alle Messungen $z_{1:k}$, $p(x_k \mid z_{1:k})$, als gewichtete Stichprobe $\{(x_k^{(i)}, w_k^{(i)})\}_{i=1}^N$.
