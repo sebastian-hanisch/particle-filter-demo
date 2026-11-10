@@ -46,7 +46,7 @@ Alle Zahlen: Median bzw. Anteil über 30 feste Fahrten, Entfernungsrauschen 3 m;
 - **Beim Positionsfehler ist der Partikelfilter hier nicht besser als der UKF.** Der UKF findet die richtige Seite nach der zweiten Bake bei dieser Anordnung häufiger (97 % gegen 77 % bei 1000 Partikeln; Gleichstand erst bei 3000 Partikeln: 97 % beide); der Vorteil liegt in der Darstellung vor der Auflösung.
 - **Der Mittelwert einer zweigipfligen Wolke ist kein Ort.** Die Demo liest deshalb die Masse um die beiden Orte; bei „nie“ gibt es keinen sinnvollen Punktschätzer.
 - **Bootstrap-Filter, nichts Besseres.** Bessere Vorschlagsverteilungen oder gleichzeitiges Lernen von Parametern sind nicht umgesetzt; die Dimensionsaussage gilt für den einfachen Filter.
-- **Rechenzeiten sind Messungen dieses Rechners** und plattformabhängig; nur ihre Größenordnung trägt.
+- **Rechenzeiten sind Messungen dieses Rechners** und plattformabhängig; nur ihre Größenordnung gilt.
 - **Seltene Fehlschläge brauchen mehr Fahrten.** Bei 30 Fahrten sind einzelne Prozentpunkte beim Anteil „gefunden“ nicht belastbar.
 
 ## Verifikation
